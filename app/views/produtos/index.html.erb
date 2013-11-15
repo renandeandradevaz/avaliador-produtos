@@ -1,31 +1,578 @@
-<h1>Listing produtos</h1>
+<div class="jumbotron pesquisa-produtos-container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Descricao</th>
-      <th>Nota media</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <div class="logo-aqui-div">
+    <img src="logo-aqui.png" class="logo-aqui">
+  </div>
 
-  <tbody>
-    <% @produtos.each do |produto| %>
-      <tr>
-        <td><%= produto.nome %></td>
-        <td><%= produto.descricao %></td>
-        <td><%= produto.nota_media %></td>
-        <td><%= link_to 'Show', produto %></td>
-        <td><%= link_to 'Edit', edit_produto_path(produto) %></td>
-        <td><%= link_to 'Destroy', produto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <form>
+    <input class="form-control input-lg pesquisa-produtos" type="text" placeholder="Pesquise produtos...">
 
-<br>
+    <div class="btn-group a-direita">
+      <img class="opcoes" title="Opções" src="menu.png" data-toggle="dropdown">
+      <ul class="dropdown-menu dropdown-opcoes" role="menu">
+        <li><a id='selecione-uma-categoria' href="#">Pesquisa por categoria</a></li>
+      </ul>
+    </div>
 
-<%= link_to 'New Produto', new_produto_path %>
+    <div class="row">
+      <div class="col-md-4 a-direita selecione-uma-categoria">
+        <select class="form-control" id='selecione-uma-categoria-select'>
+          <option value="" style="display: none;"> Selecione uma categoria</option>
+          <option> Fone de ouvido</option>
+          <option> Geladeira</option>
+          <option> Microondas</option>
+          <option> Notebook</option>
+          <option> Tablet</option>
+          <option> Tênis</option>
+        </select>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div class="row produtos-pesquisados">
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Nota média:</strong> 8,7
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Nota média:</strong> 8,7
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Nota média:</strong> 8,7
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Nota média:</strong> 8,7
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4 produto-pesquisado-div-externa">
+  <div class="produto-pesquisado-div-interna">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+      </div>
+      <div class="col-md-8">
+
+        <p class="produto-nome">
+          Iphone 24324234
+        </p>
+
+        <br>
+
+        <p>
+          <strong>Categoria:</strong> Smartphone
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="nao-encontrou-o-que-procura jumbotron">
+
+  <hr>
+
+  Não encontrou o que procura? <br>
+  Talvez o produto que esteja procurando ainda não esteja cadastrado na nossa base de dados. <br>
+  Cadastre este produto para que ele possa ser avaliado. <br> <br>
+
+  <a href="#" class="btn btn-primary">Cadastrar produto</a>
+
+</div>
