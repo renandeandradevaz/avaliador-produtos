@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  descricao: MyString
+  nota_media: 9.99
+
+two:
+  nome: MyString
+  descricao: MyString
+  nota_media: 9.99
