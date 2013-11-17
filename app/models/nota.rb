@@ -9,9 +9,8 @@ class Nota < ActiveRecord::Base
 
   def atualizar_nota_media_produto
 
-    puts "==================="
-    puts Nota.where(produto: self.produto).average('nota')
-    puts "==================="
+    self.produto.nota_media = Nota.where(produto: self.produto).average('nota')
+    self.produto.save
 
   end
 

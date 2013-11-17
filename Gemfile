@@ -30,5 +30,3 @@ gem 'foreigner'
 gem 'devise'
 
 gem 'paperclip'
-
-gem 'activeadmin', github: 'gregbell/active_admin'

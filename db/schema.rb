@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20131117155926) do
 
   create_table "produtos", force: true do |t|
     t.string   "nome"
-    t.string   "descricao"
+    t.text     "descricao"
     t.decimal  "nota_media",          precision: 10, scale: 0
     t.integer  "categoria_id",                                 null: false
     t.datetime "created_at"
