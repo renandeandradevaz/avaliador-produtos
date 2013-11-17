@@ -4,7 +4,7 @@
       <div class="produto-pesquisado-div-interna" onclick="window.location='/produtos/<%= produto.id %>'" >
         <div class="row">
           <div class="col-md-4">
-            <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+            <%= image_tag produto.imagem.url(:medio), :class => "img-thumbnail" %>
           </div>
           <div class="col-md-8">
 

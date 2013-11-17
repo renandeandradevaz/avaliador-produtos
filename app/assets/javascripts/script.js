@@ -1,4 +1,5 @@
-$(document).ready(function () {
+var ready;
+ready = function () {
 
     $("#categoria").autocomplete({
         source: "/categorias",
@@ -22,7 +23,7 @@ $(document).ready(function () {
 
         $.ajax({
             url: "/categorias/listar_todas",
-            success: function( data ) {
+            success: function (data) {
                 $("#selecione-uma-categoria-select").append(data);
             }
         });
@@ -34,7 +35,23 @@ $(document).ready(function () {
         $("#combo-notas").show();
     });
 
-});
+    $("#combo-notas").on("change", function () {
+
+        $.ajax({
+            url: "/produtos/dar_nota",
+            data: {
+                nota: $("#combo-notas").val(),
+                id_produto: $("#id_produto").val()
+            }
+        });
+    });
+
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
 
 function pesquisarProdutos() {
 
@@ -48,8 +65,8 @@ function pesquisarProdutos() {
 
     $.ajax({
         url: "/produtos/pesquisar",
-        data: $("#form-pesquisa-produtos").serializeArray() ,
-        success: function( data ) {
+        data: $("#form-pesquisa-produtos").serializeArray(),
+        success: function (data) {
             $(".produtos-pesquisados").empty();
             $(".produtos-pesquisados").append(data);
         }

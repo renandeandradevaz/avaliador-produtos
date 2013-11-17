@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117023843) do
+ActiveRecord::Schema.define(version: 20131117155926) do
 
   create_table "categorias", force: true do |t|
     t.string   "nome"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "notas", force: true do |t|
+    t.decimal  "nota",       precision: 10, scale: 0
+    t.integer  "produto_id",                          null: false
+    t.integer  "user_id",                             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notas", ["produto_id"], name: "notas_produto_id_fk", using: :btree
+  add_index "notas", ["user_id"], name: "notas_user_id_fk", using: :btree
 
   create_table "produtos", force: true do |t|
     t.string   "nome"
@@ -52,6 +63,9 @@ ActiveRecord::Schema.define(version: 20131117023843) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  add_foreign_key "notas", "produtos", name: "notas_produto_id_fk"
+  add_foreign_key "notas", "users", name: "notas_user_id_fk"
 
   add_foreign_key "produtos", "categorias", name: "produtos_categoria_id_fk"
 

@@ -1,19 +1,45 @@
-<p id="notice"><%= notice %></p>
+<%= hidden_field_tag 'id_produto', @produto.id %>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @produto.nome %>
-</p>
+<div class="jumbotron show-produto-container">
+  <div class="row" >
+    <div class="col-md-4" >
+      <%= image_tag @produto.imagem.url(:grande), :class => "img-thumbnail" %>
+    </div>
+    <div class="col-md-8" >
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @produto.descricao %>
-</p>
+      <h2 class="centralizado" > <%= @produto.nome %> </h2>
 
-<p>
-  <strong>Nota media:</strong>
-  <%= @produto.nota_media %>
-</p>
+      <br>
 
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+      <h3> Sua nota: <strong id="sua-nota" > <%= current_user.nota_para_o_produto(@produto) %> </strong> <a class="dar-nota" href="#" > Dar nota </a>
+
+        <select class="form-control" id='combo-notas' >
+          <option value="" style="display: none" > Nota </option>
+          <option value="0" > 0 </option>
+          <option value="1" > 1 </option>
+          <option value="2" > 2 </option>
+          <option value="3" > 3 </option>
+          <option value="4" > 4 </option>
+          <option value="5" > 5 </option>
+          <option value="6" > 6 </option>
+          <option value="7" > 7 </option>
+          <option value="8" > 8 </option>
+          <option value="9" > 9 </option>
+          <option value="10" > 10 </option>
+        </select>
+
+      </h3>
+
+      <h3> Nota média: <strong> 7,3 </strong> </h3>
+
+      <br>
+
+      <h4>
+
+        <%= @produto.descricao %>
+
+       </h4>
+
+    </div>
+  </div>
+</div>
