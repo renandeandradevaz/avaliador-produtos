@@ -46,7 +46,10 @@ ready = function () {
         });
     });
 
-
+    $('#form-comentar').on('ajax:success', function(event, xhr, status) {
+        $("#comentarios").prepend(xhr) ;
+        $("#campo_comentario").val("");
+    });
 };
 
 $(document).ready(ready);

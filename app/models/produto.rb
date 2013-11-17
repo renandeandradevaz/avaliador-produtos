@@ -1,4 +1,5 @@
 class Produto < ActiveRecord::Base
+  acts_as_commentable
 
   belongs_to :categoria
 

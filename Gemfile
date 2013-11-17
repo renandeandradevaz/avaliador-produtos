@@ -30,3 +30,5 @@ gem 'foreigner'
 gem 'devise'
 
 gem 'paperclip'
+
+gem 'acts_as_commentable'

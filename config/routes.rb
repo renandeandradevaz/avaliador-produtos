@@ -7,6 +7,7 @@ AvaliadorProdutos::Application.routes.draw do
   get "categorias/listar_todas"
   get "produtos/pesquisar"
   get "produtos/dar_nota"
+  get "produtos/comentar"
 
   resources :produtos
   resources :categorias

@@ -22,6 +22,7 @@ class ProdutosController < ApplicationController
 
   def show
     @produto = Produto.find(params[:id])
+    @comentarios = @produto.comments.order(created_at: :desc)
   end
 
   def new
@@ -57,6 +58,18 @@ class ProdutosController < ApplicationController
     nota.save
 
     @nota =  nota.nota
+
+  end
+
+  def comentar
+
+    @produto = Produto.find(params[:produto_comentario])
+
+    @produto.comments.create(:comment => params[:comentario], :user => current_user)
+
+    @comentario = @produto.comments.last
+
+    render :layout => false
 
   end
 

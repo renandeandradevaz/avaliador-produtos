@@ -1,0 +1,21 @@
+<div class="row">
+
+  <div class="col-md-4 comentario-foto-container">
+
+    <img class="img-thumbnail comentario-foto" src="http://www.fodecast.com.br/wp-content/uploads/2013/09/1010870_580481862012190_397054848_n.jpg">
+
+    <h5 class="centralizado"> <%= @comentario.user.name %> </h5>
+
+    <h5 class="centralizado"> Nota: <strong> <%= @comentario.user.nota_para_o_produto(@produto) %> </strong></h5>
+
+  </div>
+
+  <div class="col-md-8 comentario">
+
+    <h5> <%= @comentario.comment %> </h5>
+
+  </div>
+
+</div>
+
+<hr>
