@@ -6,4 +6,9 @@ class CategoriasController < ApplicationController
     render :json => @categorias.to_json
   end
 
+  def listar_todas
+    @categorias = Categoria.all
+    render :layout => false
+  end
+
 end

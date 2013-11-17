@@ -1,0 +1,33 @@
+<% @produtos.each do |produto| %>
+
+    <div class="col-md-4 produto-pesquisado-div-externa" >
+      <div class="produto-pesquisado-div-interna" onclick="window.location='/produtos/<%= produto.id %>'" >
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-thumbnail" src="http://www.everonit.com/techtips/wp-content/uploads/2013/01/iphone.jpg">
+          </div>
+          <div class="col-md-8">
+
+            <p class="produto-nome">
+              <%= produto.nome %>
+            </p>
+
+            <br>
+
+            <p>
+              <strong>Categoria:</strong> <%= produto.categoria.nome %>
+            </p>
+
+            <br>
+
+            <p>
+              <strong>Nota média:</strong> <%= produto.nota_media %>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+

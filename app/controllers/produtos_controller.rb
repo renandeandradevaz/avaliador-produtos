@@ -1,12 +1,27 @@
 class ProdutosController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_produto, only: [:show, :edit, :update, :destroy]
 
   def index
-    @produtos = Produto.all
+    @produto = Produto.new
+  end
+
+  def pesquisar
+
+    nome_produto = params[:produto][:nome]
+    nome_categoria = params[:produto][:categoria][:nome]
+
+    if nome_categoria.present?
+      @produtos = Produto.includes(:categoria).where(categoria: Categoria.where(nome: nome_categoria).take!).where("nome like ?", "%#{nome_produto}%")
+    else
+      @produtos = Produto.includes(:categoria).where("nome like ?", "%#{nome_produto}%")
+    end
+
+    render :layout => false
+
   end
 
   def show
+    @produto = Produto.find(params[:id])
   end
 
   def new
@@ -25,11 +40,6 @@ class ProdutosController < ApplicationController
       render action: 'new'
     end
   end
-end
-
-private
-def set_produto
-  @produto = Produto.find(params[:id])
 end
 
 def produto_params
