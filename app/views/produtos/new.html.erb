@@ -22,7 +22,7 @@
     <div class="form-group">
       <%= f.label :categoria %><br>
       <%= f.fields_for :categoria do |categoria| %>
-          <%= categoria.text_field :nome, :class => 'form-control' %>
+          <%= categoria.text_field :nome, :class => 'form-control', :id => 'categoria' %>
       <% end %>
     </div>
 
