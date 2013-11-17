@@ -4,8 +4,11 @@ class CreateProdutos < ActiveRecord::Migration
       t.string :nome
       t.string :descricao
       t.decimal :nota_media
+      t.integer :categoria_id, :null => false
 
       t.timestamps
     end
+
+    add_foreign_key(:produtos, :categorias)
   end
 end

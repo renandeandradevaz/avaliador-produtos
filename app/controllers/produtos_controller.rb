@@ -17,6 +17,8 @@ class ProdutosController < ApplicationController
 
     @produto = Produto.new(produto_params)
 
+    @produto.vincular_a_categoria params[:produto][:categoria][:nome]
+
     if @produto.save
       redirect_to @produto
     else
@@ -31,5 +33,5 @@ def set_produto
 end
 
 def produto_params
-  params.require(:produto).permit(:nome, :descricao)
+  params.require(:produto).permit(:nome, :descricao, :imagem)
 end

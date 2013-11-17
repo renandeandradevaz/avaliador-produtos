@@ -1,5 +1,36 @@
-<h1>New produto</h1>
 
-<%= render 'form' %>
+<% if @produto.errors.any? %>
+    <% @produto.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger">
+          <%= msg %>
+        </div>
+    <% end %>
+<% end %>
 
-<%= link_to 'Back', produtos_path %>
+<%= form_for(@produto, :class => 'form', :html => {:multipart => true}) do |f| %>
+
+    <div class="form-group">
+      <%= f.label :nome %><br>
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :descricao %><br>
+      <%= f.text_field :descricao, :class => 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :categoria %><br>
+      <%= f.fields_for :categoria do |categoria| %>
+          <%= categoria.text_field :nome, :class => 'form-control' %>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :Imagem %><br>
+      <%= f.file_field :imagem %>
+    </div>
+
+    <%= f.submit :class => 'btn btn-primary', :value => 'Salvar' %>
+
+<% end %>
